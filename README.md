@@ -9,4 +9,10 @@ A collection of useful bash scripts and terminal commands for Ubuntu
 convert -verbose -density 600 -trim slides.pdf -quality 100 -flatten slides.jpg
 ```
 
+### SSH
+
+* Copy file using SSH
+```
+scp [file name] [user name]@[ip address]:~/[destination]
+```
 
