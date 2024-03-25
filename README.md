@@ -16,3 +16,11 @@ convert -verbose -density 600 -trim slides.pdf -quality 100 -flatten slides.jpg
 scp [file name] [user name]@[ip address]:~/[destination]
 ```
 
+### Meta data
+
+* Get image metadata
+```
+exiftool image1.jpg
+```
+
+
