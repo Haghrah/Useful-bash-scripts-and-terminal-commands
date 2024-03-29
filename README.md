@@ -23,4 +23,11 @@ scp [file name] [user name]@[ip address]:~/[destination]
 exiftool image1.jpg
 ```
 
+### FFMPEG
+
+* Removing the audio channel from a mp4 file
+```
+ffmpeg -i input.mp4 -an -c:v copy output.mp4
+```
+
 
