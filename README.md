@@ -9,6 +9,13 @@ A collection of useful bash scripts and terminal commands for Ubuntu
 convert -verbose -density 600 -trim slides.pdf -quality 100 -flatten slides.jpg
 ```
 
+* Convert .webp to *.png
+```
+for file in *.webp; do
+    dwebp "$file" -o "${file%.webp}.png"
+done
+```
+
 ### SSH
 
 * Copy file using SSH
