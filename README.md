@@ -37,4 +37,16 @@ exiftool image1.jpg
 ffmpeg -i input.mp4 -an -c:v copy output.mp4
 ```
 
+### Latex
+
+* Word count in the output pdf
+```
+texcount -sum -1 file.tex
+```
+
+
+
+
+
+
 
