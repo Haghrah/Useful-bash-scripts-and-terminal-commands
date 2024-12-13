@@ -44,7 +44,17 @@ ffmpeg -i input.mp4 -an -c:v copy output.mp4
 texcount -sum -1 file.tex
 ```
 
+### Text file
 
+* Lines count of a text file
+```
+wc -l file.txt
+```
+
+* Specific line of a text file
+```
+sed -n '5000p' file.txt
+```
 
 
 
