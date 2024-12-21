@@ -36,13 +36,39 @@ chmod +x first_script.sh
 ```
 
 ### Using Variables
+Variables store data to reuse it later in the script.
 
+**Example**
 
+```
+#!/bin/bash
 
+name="Ubuntu User"
+echo "Hello, $name!"
+```
 
+* **Steps:**
+  * Save this as variables_script.sh.
+  * Make it executable: chmod +x variables_script.sh.
+  * Run it: ./variables_script.sh.
 
+### Reading User Input
+Use the read command to get input from the user.
 
+**Example**
 
+```
+#!/bin/bash
+
+echo "What is your name?"
+read user_name
+echo "Welcome, $user_name!"
+```
+
+* **Explanation:**
+  * read user_name: Reads input and stores it in the user_name variable.
+
+### Run Conditional Logic
 
 
 
