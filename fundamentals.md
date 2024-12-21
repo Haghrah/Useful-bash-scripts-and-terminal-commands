@@ -333,6 +333,113 @@ check_even 7
 
 Functions make scripts modular, easier to read, and maintain.
 
+### File Operations
+
+**Creating and Writing to Files**
+
+```
+#!/bin/bash
+
+echo "This is a sample text." > sample.txt  # Overwrites content
+echo "Adding more text." >> sample.txt     # Appends content
+```
+
+**Reading a File Line by Line**
+
+```
+#!/bin/bash
+
+while IFS= read -r line; do
+    echo "Line: $line"
+done < sample.txt
+```
+
+**Checking if a File Exists**
+
+```
+#!/bin/bash
+
+if [ -e sample.txt ]; then
+    echo "File exists."
+else
+    echo "File does not exist."
+fi
+```
+
+**Deleting a File**
+
+```
+#!/bin/bash
+
+rm sample.txt
+echo "File deleted."
+```
+
+### Debugging Bash Scripts
+
+**Enable Debugging Mode**
+
+Add -x after the shebang or use set -x.
+
+```
+#!/bin/bash -x
+
+echo "Debugging this script"
+```
+
+OR
+
+```
+#!/bin/bash
+
+set -x
+echo "Debugging this script"
+set +x
+```
+
+* set -x: Starts debugging mode.
+* set +x: Stops debugging mode.
+
+**Check for Syntax Errors**
+
+Run the script with bash -n:
+
+```
+bash -n script.sh
+```
+
+
+**Trace Execution**
+
+Use bash -x to trace commands:
+
+```
+bash -x script.sh
+```
+
+### Example Script: File Management
+
+Here’s a complete example combining file operations and conditions:
+
+```
+#!/bin/bash
+
+echo "Enter the filename:"
+read filename
+
+if [ -e "$filename" ]; then
+    echo "$filename exists. Contents are:"
+    cat "$filename"
+else
+    echo "$filename does not exist. Creating it..."
+    echo "Hello, this is a new file." > "$filename"
+    echo "$filename created."
+fi
+```
+
+
+
+
 
 
 
