@@ -120,6 +120,129 @@ fi
   * -lt: Less than.
   * -eq: Equal to.
 
+### The for Loop
+
+The for loop iterates over a list of items.
+
+**Example 1:** Iterating through a list
+
+```
+#!/bin/bash
+
+for item in Apple Banana Cherry; do
+    echo "I like $item."
+done
+```
+
+**Example 2:** Iterating through numbers
+
+```
+#!/bin/bash
+
+for number in {1..5}; do
+    echo "Number: $number"
+done
+```
+
+### The while Loop
+
+The while loop runs as long as the condition is true.
+
+**Example:** Counting down
+
+```
+#!/bin/bash
+
+count=5
+while [ $count -gt 0 ]; do
+    echo "Countdown: $count"
+    count=$((count - 1))  # Decrement count
+done
+```
+
+### The until Loop
+
+The until loop runs until the condition becomes true.
+
+**Example:** Counting up
+
+```
+#!/bin/bash
+
+count=1
+until [ $count -gt 5 ]; do
+    echo "Count: $count"
+    count=$((count + 1))  # Increment count
+done
+```
+
+### Breaking out of Loops
+
+Use break to exit a loop early.
+
+**Example:** Break on condition
+
+```
+#!/bin/bash
+
+for number in {1..10}; do
+    if [ $number -eq 5 ]; then
+        echo "Breaking the loop at $number."
+        break
+    fi
+    echo "Number: $number"
+done
+```
+
+### Skipping Iterations
+
+Use continue to skip the current iteration.
+
+**Example:** Skip a number
+
+```
+#!/bin/bash
+
+for number in {1..5}; do
+    if [ $number -eq 3 ]; then
+        echo "Skipping $number."
+        continue
+    fi
+    echo "Number: $number"
+done
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
