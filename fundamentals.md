@@ -585,6 +585,181 @@ else
 fi
 ```
 
+### Networking in Bash
+
+**Checking Network Connectivity**
+
+Ping a Host
+
+``` bash
+#!/bin/bash
+
+echo "Enter a hostname or IP:"
+read host
+
+if ping -c 1 "$host" &> /dev/null; then
+    echo "Host $host is reachable."
+else
+    echo "Host $host is not reachable."
+fi
+```
+
+**Downloading Files**
+
+Using wget
+
+``` bash
+#!/bin/bash
+
+url="https://example.com/file.txt"
+wget "$url" -O downloaded_file.txt
+```
+
+Using curl
+
+``` bash
+#!/bin/bash
+
+url="https://example.com/file.txt"
+curl -o downloaded_file.txt "$url"
+```
+
+**Fetching Public IP Address**
+
+Using curl
+
+``` bash
+#!/bin/bash
+curl -s https://ipinfo.io/ip
+```
+
+**Port Scanning**
+
+Check if a port is open using nc (netcat):
+
+``` bash
+#!/bin/bash
+
+echo "Enter host:"
+read host
+echo "Enter port:"
+read port
+
+if nc -z "$host" "$port"; then
+    echo "Port $port on $host is open."
+else
+    echo "Port $port on $host is closed."
+fi
+```
+
+### Process Management in Bash
+
+**Listing Running Processes**
+
+Basic Process Listing
+
+``` bash
+#!/bin/bash
+ps aux
+```
+
+Filter by Name
+
+``` bash
+#!/bin/bash
+
+echo "Enter process name:"
+read process_name
+ps aux | grep "$process_name" | grep -v "grep"
+```
+
+**Killing a Process**
+
+``` bash
+#!/bin/bash
+
+echo "Enter process name to kill:"
+read process_name
+
+pid=$(pgrep "$process_name")
+
+if [ -n "$pid" ]; then
+    kill "$pid"
+    echo "Process $process_name (PID: $pid) killed."
+else
+    echo "Process not found."
+fi
+```
+
+**Monitoring Resource Usage**
+
+CPU and Memory Usage
+
+``` bashh
+top
+```
+
+Disk Usage
+
+``` bash
+    df -h
+```
+
+**Running Processes in the Background**
+
+Use & to run a process in the background.
+
+``` bash
+#!/bin/bash
+
+sleep 10 &
+echo "Background process started with PID: $!"
+```
+
+**Automating Process Monitoring**
+
+**Example:** Restarting a Process if It Stops
+
+``` bash
+#!/bin/bash
+
+process_name="my_script.sh"
+
+while true; do
+    if ! pgrep "$process_name" > /dev/null; then
+        echo "Process $process_name not running. Restarting..."
+        /path/to/$process_name &
+    fi
+    sleep 5
+done
+```
+
+**Advanced Example:** Network and Process Monitoring
+
+Monitor a Port and Restart Service if Down
+
+``` bash
+#!/bin/bash
+
+host="127.0.0.1"
+port=80
+service_name="apache2"
+
+if ! nc -z "$host" "$port"; then
+    echo "Port $port is down. Restarting $service_name..."
+    systemctl restart "$service_name"
+else
+    echo "Port $port is up."
+fi
+```
+
+
+
+
+
+
+
+
 
 
 
