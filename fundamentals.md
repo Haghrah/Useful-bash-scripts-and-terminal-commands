@@ -437,8 +437,153 @@ else
 fi
 ```
 
+### Using External Commands
 
+Bash can call system utilities or external commands. Here are a few common ones:
 
+**Listing Files**
+
+``` bash
+#!/bin/bash
+ls -l
+```
+
+**Searching for Text in Files**
+
+``` bash
+#!/bin/bash
+grep "text_to_search" filename.txt
+```
+
+**Downloading Files**
+
+``` bash
+#!/bin/bash
+wget https://example.com/file.txt
+```
+
+**Disk Usage**
+
+``` bash
+#!/bin/bash
+df -h
+```
+
+## Text Processing with awk and sed
+
+**Using awk**
+
+awk is great for parsing and processing text.
+
+**Example:** Extract the second column of a file
+
+``` bash
+#!/bin/bash
+awk '{print $2}' filename.txt
+```
+
+**Using sed**
+
+sed is useful for text substitution.
+
+**Example:** Replace "old" with "new" in a file
+
+``` bash
+#!/bin/bash
+sed -i 's/old/new/g' filename.txt
+```
+
+## Functions with File Operations
+
+**Example:** Counting Words in a File
+
+``` bash
+#!/bin/bash
+
+count_words() {
+    wc -w "$1" | awk '{print $1}'
+}
+
+echo "Enter filename:"
+read filename
+
+if [ -e "$filename" ]; then
+    echo "Word count: $(count_words $filename)"
+else
+    echo "File does not exist."
+fi
+```
+
+## Loops with System Commands
+
+**Example:** Renaming Files in a Directory
+
+``` bash
+#!/bin/bash
+
+for file in *.txt; do
+    mv "$file" "${file%.txt}_backup.txt"
+done
+```
+
+### Debugging and Error Handling
+
+**Error Handling with set**
+
+``` bash
+#!/bin/bash
+
+set -e  # Exit on any error
+set -u  # Treat unset variables as errors
+set -o pipefail  # Exit if any command in a pipeline fails
+
+echo "Starting script..."
+ls nonexistent_file.txt
+echo "This will not run if the above command fails."
+```
+
+**Logging Errors**
+
+Redirect errors to a log file.
+
+``` bash
+#!/bin/bash
+
+command 2>> error.log
+```
+
+### Automation with Cron Jobs
+
+Cron jobs automate running bash scripts at specific times.
+
+Edit the crontab file:
+
+``` bash
+crontab -e
+```
+
+Add a line to run a script every day at 5 PM:
+
+``` bash
+0 17 * * * /path/to/your_script.sh
+```
+
+### Advanced Example: Backup Script
+
+``` bash
+#!/bin/bash
+
+SOURCE_DIR="/path/to/source"
+BACKUP_DIR="/path/to/backup"
+DATE=$(date +%Y%m%d)
+
+if [ -d "$SOURCE_DIR" ]; then
+    tar -czf "$BACKUP_DIR/backup_$DATE.tar.gz" "$SOURCE_DIR"
+    echo "Backup completed: $BACKUP_DIR/backup_$DATE.tar.gz"
+else
+    echo "Source directory does not exist."
+fi
+```
 
 
 
