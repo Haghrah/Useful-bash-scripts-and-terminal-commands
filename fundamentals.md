@@ -469,7 +469,7 @@ wget https://example.com/file.txt
 df -h
 ```
 
-## Text Processing with awk and sed
+### Text Processing with awk and sed
 
 **Using awk**
 
@@ -493,7 +493,7 @@ sed is useful for text substitution.
 sed -i 's/old/new/g' filename.txt
 ```
 
-## Functions with File Operations
+### Functions with File Operations
 
 **Example:** Counting Words in a File
 
