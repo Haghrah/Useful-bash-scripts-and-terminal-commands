@@ -8,13 +8,13 @@ A bash script is a file containing a sequence of commands that the terminal can 
 
 1. **Create a file:**
 
-```
+``` bash
 nano first_script.sh
 ```
 
 2. **Add this content:**
 
-```
+``` bash
 #!/bin/bash
 echo "Hello, World!"
 ```
@@ -25,13 +25,13 @@ echo "Hello, World!"
 3. **Save and exit:** Press CTRL+O, ENTER, then CTRL+X.
 4. **Make it executable:**
 
-```
+``` bash
 chmod +x first_script.sh
 ```
 
 5. **Run the script:**
 
-```
+``` bash
 ./first_script.sh
 ```
 
@@ -40,7 +40,7 @@ Variables store data to reuse it later in the script.
 
 **Example**
 
-```
+``` bash
 #!/bin/bash
 
 name="Ubuntu User"
@@ -57,7 +57,7 @@ Use the read command to get input from the user.
 
 **Example**
 
-```
+``` bash
 #!/bin/bash
 
 echo "What is your name?"
@@ -73,7 +73,7 @@ Add conditions to your script.
 
 **Example:**
 
-```
+``` bash
 #!/bin/bash
 
 echo "Enter a number:"
@@ -100,7 +100,7 @@ fi
 
 **Example:**
 
-```
+``` bash
 #!/bin/bash
 
 echo "Enter a number:"
@@ -126,7 +126,7 @@ The for loop iterates over a list of items.
 
 **Example 1:** Iterating through a list
 
-```
+``` bash
 #!/bin/bash
 
 for item in Apple Banana Cherry; do
@@ -136,7 +136,7 @@ done
 
 **Example 2:** Iterating through numbers
 
-```
+``` bash
 #!/bin/bash
 
 for number in {1..5}; do
@@ -150,7 +150,7 @@ The while loop runs as long as the condition is true.
 
 **Example:** Counting down
 
-```
+``` bash
 #!/bin/bash
 
 count=5
@@ -166,7 +166,7 @@ The until loop runs until the condition becomes true.
 
 **Example:** Counting up
 
-```
+``` bash
 #!/bin/bash
 
 count=1
@@ -182,7 +182,7 @@ Use break to exit a loop early.
 
 **Example:** Break on condition
 
-```
+``` bash
 #!/bin/bash
 
 for number in {1..10}; do
@@ -200,7 +200,7 @@ Use continue to skip the current iteration.
 
 **Example:** Skip a number
 
-```
+``` bash
 #!/bin/bash
 
 for number in {1..5}; do
@@ -220,14 +220,14 @@ done
 
 1. Basic Arithmetic
 
-```
+``` bash
 result=$((5 + 3))
 echo $result  # Outputs: 8
 ```
 
 2. Incrementing a Variable
 
-```
+``` bash
 count=1
 count=$((count + 1))  # count becomes 2
 echo $count
@@ -236,7 +236,7 @@ echo $count
 3. Shorthand Increment
 Bash supports a shorthand for incrementing and decrementing:
 
-```
+``` bash
 count=1
 ((count++))  # count becomes 2
 echo $count
@@ -244,7 +244,7 @@ echo $count
 
 4. Decrementing a Variable
 
-```
+``` bash
 count=5
 count=$((count - 1))  # count becomes 4
 echo $count
@@ -262,7 +262,7 @@ Functions in bash are blocks of reusable code that you can call multiple times.
 
 1. Basic Syntax
 
-```
+``` bash
 function_name() {
     # Commands
 }
@@ -270,7 +270,7 @@ function_name() {
 
 **Example:** A Simple Function
 
-```
+``` bash
 #!/bin/bash
 
 greet() {
@@ -288,7 +288,7 @@ Functions return values using return or by echoing the value.
 
 **Example:** Using return
 
-```
+``` bash
 #!/bin/bash
 
 add() {
@@ -301,7 +301,7 @@ echo "Result: $?"  # $? gets the return value
 
 **Example:** Using echo
 
-```
+``` bash
 #!/bin/bash
 
 multiply() {
@@ -314,7 +314,7 @@ echo "Result: $result"
 
 **Functions with Conditional Logic**
 
-```
+``` bash
 #!/bin/bash
 
 check_even() {
@@ -337,7 +337,7 @@ Functions make scripts modular, easier to read, and maintain.
 
 **Creating and Writing to Files**
 
-```
+``` bash
 #!/bin/bash
 
 echo "This is a sample text." > sample.txt  # Overwrites content
@@ -346,7 +346,7 @@ echo "Adding more text." >> sample.txt     # Appends content
 
 **Reading a File Line by Line**
 
-```
+``` bash
 #!/bin/bash
 
 while IFS= read -r line; do
@@ -356,7 +356,7 @@ done < sample.txt
 
 **Checking if a File Exists**
 
-```
+``` bash
 #!/bin/bash
 
 if [ -e sample.txt ]; then
@@ -368,7 +368,7 @@ fi
 
 **Deleting a File**
 
-```
+``` bash
 #!/bin/bash
 
 rm sample.txt
@@ -381,7 +381,7 @@ echo "File deleted."
 
 Add -x after the shebang or use set -x.
 
-```
+``` bash
 #!/bin/bash -x
 
 echo "Debugging this script"
@@ -389,7 +389,7 @@ echo "Debugging this script"
 
 OR
 
-```
+``` bash
 #!/bin/bash
 
 set -x
@@ -404,7 +404,7 @@ set +x
 
 Run the script with bash -n:
 
-```
+``` bash
 bash -n script.sh
 ```
 
@@ -413,7 +413,7 @@ bash -n script.sh
 
 Use bash -x to trace commands:
 
-```
+``` bash
 bash -x script.sh
 ```
 
@@ -421,7 +421,7 @@ bash -x script.sh
 
 Here’s a complete example combining file operations and conditions:
 
-```
+``` bash
 #!/bin/bash
 
 echo "Enter the filename:"
