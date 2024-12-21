@@ -216,7 +216,7 @@ done
 * $((expression)) is used for arithmetic operations in bash.
 * It evaluates the expression inside the parentheses and returns the result.
 
-#### Examples of Arithmetic
+**Examples of Arithmetic**
 
 1. Basic Arithmetic
 
@@ -254,7 +254,84 @@ echo $count
 
 Bash treats everything as strings by default, so $(( )) explicitly tells it to perform arithmetic. Without this, bash won't understand operations like addition or multiplication.
 
+### What Are Functions in Bash?
 
+Functions in bash are blocks of reusable code that you can call multiple times.
+
+**Defining and Using a Function**
+
+1. Basic Syntax
+
+```
+function_name() {
+    # Commands
+}
+```
+
+**Example:** A Simple Function
+
+```
+#!/bin/bash
+
+greet() {
+    echo "Hello, $1!"
+}
+
+greet "Ubuntu User"
+```
+
+* $1 refers to the first argument passed to the function.
+
+**Returning Values**
+
+Functions return values using return or by echoing the value.
+
+**Example:** Using return
+
+```
+#!/bin/bash
+
+add() {
+    return $(( $1 + $2 ))
+}
+
+add 3 5
+echo "Result: $?"  # $? gets the return value
+```
+
+**Example:** Using echo
+
+```
+#!/bin/bash
+
+multiply() {
+    echo $(( $1 * $2 ))
+}
+
+result=$(multiply 4 5)
+echo "Result: $result"
+```
+
+**Functions with Conditional Logic**
+
+```
+#!/bin/bash
+
+check_even() {
+    if [ $(( $1 % 2 )) -eq 0 ]; then
+        echo "$1 is even."
+    else
+        echo "$1 is odd."
+    fi
+}
+
+check_even 4
+check_even 7
+```
+
+**Why Use Functions?**
+
+Functions make scripts modular, easier to read, and maintain.
 
 
 
