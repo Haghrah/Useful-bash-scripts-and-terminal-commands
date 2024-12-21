@@ -1,4 +1,4 @@
-## Bash scripting fundamentals
+## Bash scripting fundamentals by ChatGPT
 Let’s start with simple bash scripting fundamentals.
 
 ### What is a Bash Script?
@@ -702,7 +702,7 @@ top
 Disk Usage
 
 ``` bash
-    df -h
+df -h
 ```
 
 **Running Processes in the Background**
@@ -753,8 +753,96 @@ else
 fi
 ```
 
+### Check If an External Command Executed Successfully
 
+In bash, you can check the exit status of a command using the special variable $?.
 
+* Exit Status:
+ * 0: Success.
+ * Non-zero: Failure.
+
+**Example:** Checking a Command’s Exit Status
+
+``` bash
+#!/bin/bash
+
+ls /nonexistent_dir
+if [ $? -eq 0 ]; then
+    echo "Command executed successfully."
+else
+    echo "Command failed."
+fi
+```
+
+### Indicate Bash Script Execution Status to Others
+
+A bash script itself can return an exit status using the exit command.
+Setting a Custom Exit Status
+
+``` bash
+#!/bin/bash
+
+echo "Doing some work..."
+# Simulate success or failure
+if [ -e "/some/file" ]; then
+    echo "Script completed successfully."
+    exit 0  # Indicate success
+else
+    echo "Script encountered an error."
+    exit 1  # Indicate failure
+fi
+```
+
+The exit command ends the script and returns the specified status to the caller.
+
+### Calling the Script and Checking Its Exit Status
+
+When another script or command calls your script, it can check its success using $?.
+
+**Example:** Caller Script
+
+``` bash
+#!/bin/bash
+
+./my_script.sh
+if [ $? -eq 0 ]; then
+    echo "The script executed successfully."
+else
+    echo "The script failed."
+fi
+```
+
+### Combining with External Commands
+
+You can use conditional operators directly with commands for brevity:
+
+``` bash
+#!/bin/bash
+
+if curl -s https://example.com > /dev/null; then
+    echo "Website is reachable."
+else
+    echo "Failed to reach website."
+    exit 1  # Pass failure status to caller
+fi
+```
+
+### Exit Traps for Consistent Cleanup
+
+To ensure proper cleanup and status reporting, use trap for error handling.
+
+**Example:** Trap on Script Exit
+
+``` bash
+#!/bin/bash
+
+trap 'echo "An error occurred. Exiting."; exit 1' ERR
+
+echo "Performing task..."
+nonexistent_command  # This will trigger the trap
+echo "Task completed successfully."
+exit 0
+```
 
 
 
