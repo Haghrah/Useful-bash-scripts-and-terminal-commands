@@ -88,7 +88,7 @@ fi
 
 **Syntax of elif:**
 
-```
+``` bash
 if [ condition1 ]; then
     # commands if condition1 is true
 elif [ condition2 ]; then
