@@ -69,14 +69,56 @@ echo "Welcome, $user_name!"
   * read user_name: Reads input and stores it in the user_name variable.
 
 ### Run Conditional Logic
+Add conditions to your script.
 
+**Example:**
 
+```
+#!/bin/bash
 
+echo "Enter a number:"
+read number
 
+if [ "$number" -gt 10 ]; then
+    echo "The number is greater than 10."
+else
+    echo "The number is 10 or less."
+fi
+```
 
+**Syntax of elif:**
 
+```
+if [ condition1 ]; then
+    # commands if condition1 is true
+elif [ condition2 ]; then
+    # commands if condition2 is true
+else
+    # commands if none of the conditions are true
+fi
+```
 
+**Example:**
 
+```
+#!/bin/bash
+
+echo "Enter a number:"
+read number
+
+if [ "$number" -lt 0 ]; then
+    echo "The number is negative."
+elif [ "$number" -eq 0 ]; then
+    echo "The number is zero."
+else
+    echo "The number is positive."
+fi
+```
+
+* **Explanation:**
+
+  * -lt: Less than.
+  * -eq: Equal to.
 
 
 
